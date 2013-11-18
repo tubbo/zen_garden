@@ -1,4 +1,5 @@
-require 'zen_garden'
+require 'zen_garden/ssh'
+require 'zen_garden/bundle_command'
 
 namespace :deploy do
   include ZenGarden::SSH, ZenGarden::BundleCommand
