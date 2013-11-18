@@ -18,11 +18,7 @@ module ZenGarden
     end
 
     def env_specific_yaml
-      full_yaml[rails_env]
-    end
-
-    def rails_env
-      ENV['RAILS_ENV'] || 'development'
+      full_yaml[Rails.env]
     end
   end
 end
