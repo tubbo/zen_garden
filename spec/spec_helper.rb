@@ -1,6 +1,10 @@
 # Configure Rails Environment
 ENV["RAILS_ENV"] ||= "test"
 
+# Load the test framework
+require 'bundler/setup'
+require 'rspec'
+
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
 Rails.backtrace_cleaner.remove_silencers!
@@ -13,4 +17,3 @@ if ActiveSupport::TestCase.method_defined?(:fixture_path=)
   ActiveSupport::TestCase.fixture_path = File.expand_path("../fixtures", __FILE__)
 end
 
-require 'rspec'
