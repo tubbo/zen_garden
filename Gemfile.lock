@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zen_garden (0.0.1)
+    zen_garden (0.0.2)
       rails (>= 3.0.0)
       rake
 
