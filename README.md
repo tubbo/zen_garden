@@ -21,4 +21,4 @@ that runs them all!
 ## Contributing
 
 Contributions can be made in Git or Github pull requests. You must
-include tests.
+include ample tests.
