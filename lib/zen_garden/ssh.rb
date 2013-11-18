@@ -5,9 +5,7 @@ module ZenGarden
   module SSH
     # Writes the contents of an SSH config to Travis-CI's VM.
     def write_ssh_config
-      File.write(ssh_config_path, 'rw+') do |f|
-        f.puts ssh_config
-      end
+      File.write ssh_config_path, ssh_config
     end
 
     # Checks whether ~/.ssh/config already exists, in which case we will
