@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split "\n"
   s.test_files = s.files.grep(/\Aspec/)
 
-  s.add_dependency "rails", "~> 4.0.0"
+  s.add_dependency "rails", '>= 3.0.0'
   s.add_dependency "rake"
 
   s.add_development_dependency "sqlite3"
