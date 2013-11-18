@@ -10,9 +10,6 @@ Travis as part of your continous deployment workflow.
   installed, also notifies it of the deploy.
 - **rake db** uses database.yml to figure out your username, then
   creates a username and sets up the database with your schema.
-- **rails generate travis:configuration** generates a .travis.yml
-  configuration that uses this workflow for continuous deployment
-  goodness.
 
 ## Usage
 
