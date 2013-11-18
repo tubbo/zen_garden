@@ -3,5 +3,8 @@ require "zen_garden/ssh"
 require "zen_garden/database"
 
 module ZenGarden
-  APP_NAME = ENV['HEROKU_APP_NAME']
+  # The app name as defined by $HEROKU_APP_NAME in your shell.
+  def self.app_name
+    ENV['HEROKU_APP_NAME']
+  end
 end
