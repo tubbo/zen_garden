@@ -1,15 +1,14 @@
 require 'zen_garden'
 
 namespace :deploy do
-  include ZenGarden::SSH
+  include ZenGarden::SSH, ZenGarden::BundleCommand
 
   task :ssh_configuration do
     write_ssh_config unless ssh_config_exists?
   end
 
   task :heroku_keys do
-    sh 'yes | heroku keys:clear'
-    sh 'yes | heroku keys:add'
+    bundle_exec 'heroku keys:clear', 'heroku keys:add'
   end
 
   task :application_to_heroku do
