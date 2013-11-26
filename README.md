@@ -10,6 +10,10 @@ Travis as part of your continous deployment workflow.
   installed, also notifies it of the deploy.
 - **rake db** uses database.yml to figure out your username, then
   creates a username and sets up the database with your schema.
+- **rake test** will be written if Rails doesn't implement its own test
+  tasks, and create a combo task for RSpec and Teaspoon, as well as
+  include the RSpec and Teaspoon Rake tasks if they haven't already been
+  included.
 
 ## Usage
 

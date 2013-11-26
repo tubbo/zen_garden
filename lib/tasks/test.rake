@@ -11,17 +11,24 @@ namespace :test do
     end
   end
 
-  begin
-    require 'rspec/core/rake_task'
-    require 'teaspoon'
-
-    desc "Run Ruby code examples"
-    RSpec::Core::RakeTask.new :application
-
-    desc "Run JavaScript code examples"
-    task :javascripts => %w(teaspoon)
-  rescue LoadError; end
 end
 
-desc "Run all Ruby and JavaScript code examples"
-task :test => %w(test:application test:javascripts)
+unless defined? Rails::TestUnitRailtie
+  begin
+    require 'rspec/core/rake_task'
+
+    if defined? Teaspoon
+      desc "Run Ruby code examples"
+      RSpec::Core::RakeTask.new :spec
+
+      desc "Run JavaScript code examples"
+      task :teaspoon => %w(teaspoon)
+
+      desc "Run Ruby and JavaScript code examples"
+      task :test => %w(spec teaspoon)
+    else
+      desc "Run Ruby code examples"
+      RSpec::Core::RakeTask.new :spec
+    end
+  rescue LoadError; end
+end
