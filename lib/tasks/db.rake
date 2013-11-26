@@ -10,4 +10,4 @@ namespace :db do
 end
 
 desc "Create the database user and database, set up the schema, and run seeds"
-task :db => %w(db:user db:setup)
+task :db => %w(db:user db:setup db:test:prepare)
