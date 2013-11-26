@@ -18,17 +18,12 @@ unless defined? Rails::TestUnitRailtie
     require 'rspec/core/rake_task'
 
     if defined? Teaspoon
-      desc "Run Ruby code examples"
       RSpec::Core::RakeTask.new :spec
 
-      desc "Run JavaScript code examples"
-      task :teaspoon => %w(teaspoon)
-
-      desc "Run Ruby and JavaScript code examples"
+      desc "Run RSpec and Teaspoon code examples"
       task :test => %w(spec teaspoon)
     else
-      desc "Run Ruby code examples"
-      RSpec::Core::RakeTask.new :spec
+      RSpec::Core::RakeTask.new :test
     end
   rescue LoadError; end
 end
