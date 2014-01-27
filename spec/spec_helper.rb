@@ -1,5 +1,5 @@
 # Configure Rails Environment
-ENV["RAILS_ENV"] ||= "test"
+ENV["RAILS_ENV"] = "test"
 
 # Load the test framework
 require 'bundler/setup'

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zen_garden (0.0.5)
+    zen_garden (0.0.6)
       heroku
       rails (>= 3.0.0)
       rake

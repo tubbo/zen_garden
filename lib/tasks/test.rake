@@ -10,20 +10,22 @@ namespace :test do
       sh "travis encrypt #{project} '#{key}=#{value}'"
     end
   end
-
 end
 
 unless defined? Rails::TestUnitRailtie
   begin
+
     require 'rspec/core/rake_task'
+    RSpec::Core::RakeTask.new :spec
 
-    if defined? Teaspoon
-      RSpec::Core::RakeTask.new :spec
-
-      desc "Run RSpec and Teaspoon code examples"
-      task :test => %w(spec teaspoon)
+    task_order = if defined? Teaspoon
+      %w(db:migrate spec teaspoon)
     else
-      RSpec::Core::RakeTask.new :test
+      %w(db:migrate spec)
     end
+
+    desc "Run all tests"
+    task :test => task_order
+
   rescue LoadError; end
 end
